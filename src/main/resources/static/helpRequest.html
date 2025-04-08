@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Request Form</title>
+    <link rel="stylesheet" href="css/helpRequestStyles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Help Request Form</h1>
+    <form id="helpRequestForm">
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="Activities">Activities</option>
+            <option value="Child care">Child care</option>
+            <option value="Financial aid">Financial aid</option>
+            <option value="General Practical Help">General Practical Help</option>
+            <option value="Housing help">Housing help</option>
+            <option value="Mentorship (area specific)">Mentorship (area specific)</option>
+            <option value="Mercy Care (Sick / Injured)">Mercy Care (Sick / Injured)</option>
+            <option value="Moving help">Moving help</option>
+            <option value="Outreach">Outreach</option>
+            <option value="Peer support General">Peer support General</option>
+            <option value="Peer support Urgent (area specific)">Peer support Urgent (area specific)</option>
+            <option value="Prayer groups / partners">Prayer groups / partners</option>
+            <option value="Study partners">Study partners</option>
+            <option value="Transportation">Transportation</option>
+        </select>
+
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+
+<script src="js/helpRequestScript.js"></script>
+</body>
+</html>
+
+
+
+
+<!--    <form id="helpRequestForm">-->
+<!--        &lt;!&ndash; Your form fields here &ndash;&gt;-->
+<!--        <label for="title">Title:</label>-->
+<!--        <input type="text" id="title" name="title" required>-->
+
+<!--        <label for="first_name">First Name:</label>-->
+<!--        <input type="text" id="first_name" name="first_name" required>-->
+
+<!--        <label for="last_name">Last Name:</label>-->
+<!--        <input type="text" id="last_name" name="last_name" required>-->
+
+<!--        <label for="user_id">User ID:</label>-->
+<!--        <input type="number" id="user_id" name="user_id" required>-->
+
+<!--        <label for="category">Category:</label>-->
+<!--        <select id="category" name="category" required>-->
+<!--            &lt;!&ndash; Your options here &ndash;&gt;-->
+<!--        </select>-->
+
+<!--        <label for="content">Content:</label>-->
+<!--        <textarea id="content" name="content" required></textarea>-->
+
+<!--        <button type="submit">Submit</button>-->
+<!--    </form>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Help Request Form</title>-->
+<!--    <style>-->
+<!--        /* Add some basic styling to make the form look better */-->
+<!--        form {-->
+<!--            width: 50%;-->
+<!--            margin: 40px auto;-->
+<!--            padding: 20px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+
+<!--        label {-->
+<!--            display: block;-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+
+<!--        input, select, textarea {-->
+<!--            width: 100%;-->
+<!--            height: 40px;-->
+<!--            margin-bottom: 20px;-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--        }-->
+
+<!--        textarea {-->
+<!--            height: 100px;-->
+<!--        }-->
+
+<!--        button[type="submit"] {-->
+<!--            width: 100%;-->
+<!--            height: 40px;-->
+<!--            background-color: #4CAF50;-->
+<!--            color: #fff;-->
+<!--            padding: 10px;-->
+<!--            border: none;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        button[type="submit"]:hover {-->
+<!--            background-color: #3e8e41;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form id="helpRequestForm">-->
+<!--    <label for="id">ID:</label>-->
+<!--    <input type="number" id="id" name="id" required>-->
+
+<!--    <label for="title">Title:</label>-->
+<!--    <input type="text" id="title" name="title" required>-->
+
+<!--    <label for="first_name">First Name:</label>-->
+<!--    <input type="text" id="first_name" name="first_name" required>-->
+
+<!--    <label for="last_name">Last Name:</label>-->
+<!--    <input type="text" id="last_name" name="last_name" required>-->
+
+<!--    <label for="user_id">User ID:</label>-->
+<!--    <input type="number" id="user_id" name="user_id" required>-->
+
+<!--    <label for="category">Category:</label>-->
+<!--    <select id="category" name="category" required>-->
+<!--        <option value="">Select a category</option>-->
+<!--        <option value="Activities">Activities</option>-->
+<!--        <option value="Child care">Child care</option>-->
+<!--        <option value="Financial aid">Financial aid</option>-->
+<!--        <option value="General Practical Help">General Practical Help</option>-->
+<!--        <option value="Housing help">Housing help</option>-->
+<!--        <option value="Mentorship (area specific)">Mentorship (area specific)</option>-->
+<!--        <option value="Mercy Care (Sick / Injured)">Mercy Care (Sick / Injured)</option>-->
+<!--        <option value="Moving help">Moving help</option>-->
+<!--        <option value="Outreach">Outreach</option>-->
+<!--        <option value="Peer support General">Peer support General</option>-->
+<!--        <option value="Peer support Urgent (area specific)">Peer support Urgent (area specific)</option>-->
+<!--        <option value="Prayer groups / partners">Prayer groups / partners</option>-->
+<!--        <option value="Study partners">Study partners</option>-->
+<!--        <option value="Transportation">Transportation</option>-->
+<!--    </select>-->
+
+<!--    <label for="content">Content:</label>-->
+<!--    <textarea id="content" name="content" required></textarea>-->
+
+<!--    <button type="submit">Submit</button>-->
+<!--</form>-->
+
+<!--<script>-->
+
+
+<!--    // Add an event listener to the form submit event-->
+<!--    document.getElementById("helpRequestForm").addEventListener("submit", function(event) {-->
+<!--        // Prevent the default form submission behavior-->
+<!--        event.preventDefault();-->
+
+<!--        // Get the form data-->
+<!--        const formData = new FormData(this);-->
+
+<!--        // Convert the form data to JSON-->
+<!--        const jsonData = Object.fromEntries(formData);-->
+
+<!--        // Send the JSON data to the Spring controller via a POST request-->
+<!--        fetch('http://localhost:8080/api/helpRequest', {-->
+<!--            method: 'POST',-->
+<!--            headers: {-->
+<!--                'Content-Type': 'application/json'-->
+<!--            },-->
+<!--            body: JSON.stringify(jsonData)-->
+<!--        })-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => console.log(data))-->
+<!--            .catch(error => console.error(error));-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

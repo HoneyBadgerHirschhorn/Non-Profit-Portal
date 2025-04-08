@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegistrationPage</title>
+
+    <!-- Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="/css/RegistrationStyles.css">
+
+    <!-- JavaScript -->
+
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Why Register?</h1>
+    <p>Registration allows us to match volunteers with the help requests that are best suited to them.</p>
+    <p>For your safety, it also allows us to monitor communication and resolve any disputes if a misunderstanding
+        or other incident occurs.</p>
+    <p>Last, we want to make sure that only real people who are attending Aletheia use our service. No bots or spammers allowed!</p>
+
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return false">
+        <label for="first_name">First Name: (required)</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="last_name">Last Name: (required)</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="date_of_birth">Date of Birth: (required)</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" required>
+
+        <label for="gender">Gender: (required)</label>
+        <select id="gender" name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="address">Address: (recommended!)</label>
+        <input type="text" id="address" name="address">
+
+        <label for="marital_status">Marital Status (Optional)</label>
+        <select id="marital_status" name="marital_status">
+            <option value="Single">Single</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+        </select>
+
+        <label for="has_kids">Do you have children? (optional)</label>
+        <select id="has_kids" name="has_kids">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <div id="kid_info_section" style="display: none;">
+            <label for="kid_info">Please list the names, genders, and ages of your children. (optional)</label>
+            <textarea id="kid_info" name="kid_info"></textarea>
+        </div>
+
+        <label for="member">Member of a community group?</label>
+        <select id="member" name="member" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="contact_phone">Contact Phone (recommended!)</label>
+        <input type="tel" id="contact_phone" name="contact_phone">
+
+        <label for="contact_email">Contact Email (recommended!) </label>
+        <input type="email" id="contact_email" name="contact_email">
+
+        <label for="attending_since">When did you start attending Aletheia?</label>
+        <input type="date" id="attending_since" name="attending_since" required>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+<script>
+    alert("🟢 Inline JavaScript is running!");
+
+</script>
+<script src="js/registration.js" async></script>
+
+</body>
+</html>
+

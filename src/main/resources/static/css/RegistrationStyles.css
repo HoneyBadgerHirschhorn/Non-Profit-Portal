@@ -1,0 +1,128 @@
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Container for registration page */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+h1, h2 {
+    color: #800000; /* Deep red */
+}
+
+/* Paragraph styling */
+p {
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    color: #800000; /* Deep red */
+}
+
+/* Input, select, textarea, and button styling */
+input, select, textarea, button {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button styling */
+button {
+    background-color: #800000; /* Deep red */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #5c0000; /* Darker deep red */
+}
+
+/* Additional input styling */
+input, select, textarea {
+    background-color: #f0f0f0; /* Light gray for inputs */
+    border: 1px solid #ddd;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #800000; /* Focus state with red border */
+    outline: none;
+}
+
+/* Styling for smaller text (like placeholder text) */
+input::placeholder, textarea::placeholder {
+    color: #aaa;
+}
+
+/* Adjusting textareas */
+textarea {
+    resize: vertical;
+}
+
+/* Alignment and spacing for the container */
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Adjustments for form elements */
+form label {
+    font-size: 16px;
+    color: #800000; /* Deep red for labels */
+}
+
+form input, form select, form textarea {
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Styling for the hover effect on the select dropdown */
+select:hover {
+    border-color: #800000;
+}
+
+
+/* Label for Kid Info */
+#kid_info_section label {
+    display: block; /* Ensures the label is above the textarea */
+    font-weight: bold;
+    margin-bottom: 5px; /* Adds spacing between the label and the textarea */
+}
+
+/* Textarea for Kid Info */
+#kid_info_section textarea {
+    display: block; /* Makes the textarea take full width */
+    width: 100%; /* Ensures the textarea stretches to the width of its container */
+    height: 100px; /* Adjust the height as needed */
+    margin-bottom: 10px; /* Adds space below the textarea */
+}
+

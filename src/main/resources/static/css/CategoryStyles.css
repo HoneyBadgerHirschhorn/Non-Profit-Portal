@@ -1,0 +1,22 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-box {
+    background-color: whitesmoke;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.grid-box:hover {
+    background-color: #f2f2f2;
+}
+
+.grid-box h2 {
+    text-align: center;
+}
