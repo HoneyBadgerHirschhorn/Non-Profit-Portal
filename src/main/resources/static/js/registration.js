@@ -11,7 +11,7 @@ function toggleKidInfo() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("🟢 DOM Loaded! JavaScript is running.");
+    // console.log("🟢 DOM Loaded! JavaScript is running.");
 
     const form = document.getElementById("registrationForm");
     if (!form) {
