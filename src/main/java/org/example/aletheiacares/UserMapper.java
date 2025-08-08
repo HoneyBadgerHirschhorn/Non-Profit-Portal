@@ -13,22 +13,6 @@ import java.util.Set;
 @Component
 public class UserMapper {
 
-//    public User mapRequest(RegistrationRequest request) {
-//        User user = new User();
-//        user.setFirstName(request.getFirstName());
-//        user.setLastName(request.getLastName());
-//        user.setDateOfBirth(request.getDateOfBirth());
-//        user.setGender(request.getGender());
-//        user.setAddress(request.getAddress());
-//        user.setMaritalStatus(request.getMaritalStatus());
-//        user.setHasKids(request.getHasKids());
-//        user.setKidInfo(request.getKidInfo());
-//        user.setMember(request.getMember());
-//        user.setContactPhone(request.getContactPhone());
-//        user.setContactEmail(request.getContactEmail());
-//        user.setAttendingSince(request.getAttendingSince());
-//        return user;
-//    }
     public User toEntity(UserDto dto) {
         User user = new User();
         user.setId(dto.getId());
@@ -63,7 +47,6 @@ public class UserMapper {
         dto.setContactPhone(request.getContactPhone());
         dto.setContactEmail(request.getContactEmail());
         dto.setAttendingSince(request.getAttendingSince());
-        // Don't set giftIds/categoryIds (leave null or empty)
         return dto;
     }
 
@@ -83,8 +66,6 @@ public class UserMapper {
         dto.setContactPhone(user.getContactPhone());
         dto.setContactEmail(user.getContactEmail());
         dto.setAttendingSince(user.getAttendingSince());
-        // You can also set giftIds and categoryIds if you want:
-        // (requires getGifts() and getCategories() on User)
         Set<Integer> giftIds = new HashSet<>();
         if (user.getGifts() != null) {
             for (SpiritualGift gift : user.getGifts()) {

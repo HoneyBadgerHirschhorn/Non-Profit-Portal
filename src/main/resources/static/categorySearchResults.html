@@ -6,6 +6,7 @@
   <title>Help Requests by Category</title>
   <link rel="stylesheet" href="css/CategoryStyles.css" />
   <style>
+    /* Shared look for both posts and replies */
     .post-box, .reply-box {
       border: 2px solid #800000;
       border-radius: 8px;
@@ -15,10 +16,58 @@
       box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
     }
 
+    /* Replies are indented for hierarchy */
     .reply-box {
       margin-left: 2em;
     }
 
+    /* POST FORM (Respond to this request) */
+    .create-post-form {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .create-post-form input,
+    .create-post-form textarea {
+      border: 1px solid #800000;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    /* First name, last name, and title are taller and fixed width */
+    .create-post-form input[name="firstName"],
+    .create-post-form input[name="lastName"],
+    .create-post-form input[name="title"] {
+      flex: 1 1 30%;
+      min-height: 2.2em;
+    }
+
+    /* Textarea spans full width below inputs */
+    .create-post-form textarea[name="content"] {
+      flex: 1 1 100%;
+      min-height: 6em;
+      resize: vertical;
+    }
+
+    /* Submit button sits under textarea, aligned left */
+    .create-post-form button {
+      background-color: #800000;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      flex: 0 0 auto; /* don’t stretch */
+    }
+
+    .create-post-form button:hover {
+      background-color: #a00000;
+    }
+
+    /* Reply form styles remain the same */
     .reply-form {
       margin-top: 10px;
     }
@@ -59,6 +108,7 @@
       background-color: #a00000;
     }
   </style>
+
 </head>
 <body>
   <h1 id="page-title">Loading...</h1>

@@ -59,10 +59,6 @@ return helpRequestService.getByCategoryName(name).stream()
         })
         .toList();
 
-
-//        return helpRequestService.getByCategoryName(name).stream()
-//                .map(helpRequestMapper::toDto)
-//                .toList();
     }
 
     @PostMapping

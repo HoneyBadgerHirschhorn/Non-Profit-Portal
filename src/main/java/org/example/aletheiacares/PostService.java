@@ -79,32 +79,3 @@ public class PostService {
         return postRepository.findByCategory_Name(categoryName);
     }
 }
-
-
-
-
-
-//package org.example.aletheiacares;
-//
-//import java.util.List;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//@Service
-//public class PostService {
-//
-//    @Autowired
-//    private PostRepository postRepository;
-//
-//    public Post savePost(Post post) {
-//        List<Post> matches = postRepository.findByFirstNameAndLastName(post.getFirstName(), post.getLastName());
-//
-//        if (!matches.isEmpty()) {
-//            // A Post exists with the same first and last name
-//            post.setUser(matches.getFirst().getUser());
-//        }
-//
-//        return postRepository.save(post);
-//    }
-//}
