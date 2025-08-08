@@ -3,52 +3,32 @@ package org.example.aletheiacares;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class HelpRequestService {
 
+    private final HelpRequestRepository helpRequestRepository;
+
     @Autowired
-    private HelpRequestRepository helpRequestRepository;
+    public HelpRequestService(HelpRequestRepository helpRequestRepository) {
+        this.helpRequestRepository = helpRequestRepository;
+    }
 
     public HelpRequest saveHelpRequest(HelpRequest helpRequest) {
+        // Optional: implement deduplication based on first + last name
+        List<HelpRequest> existing = helpRequestRepository.findByFirstNameAndLastName(
+                helpRequest.getFirstName(), helpRequest.getLastName()
+        );
 
-        List<HelpRequestInterface> moo = getAllHelpRequestSummaries();
-        boolean button1 = false;
-        boolean button2 = false;
-        String firstName;
-        String LastName;
-
-        if(moo.contains(helpRequest.getFirstName())){
-            button1 = true;
-            firstName = helpRequest.getFirstName();
-        }
-
-        if(moo.contains(helpRequest.getLastName())){
-            button2 = true;
-            LastName = helpRequest.getLastName();
-        }
-
-        if (button1 && button2 == true) {
-            List<HelpRequest> names = helpRequestRepository.findByFirstNameAndLastName(helpRequest.getFirstName(), helpRequest.getLastName());
-        }
-
-        List<HelpRequest> matches = helpRequestRepository.findByFirstNameAndLastName(helpRequest.getFirstName(),helpRequest.getLastName());
-
-        if (!matches.isEmpty()) {
-            // A HelpRequest exists in the DB with the same first and last name
-            helpRequest.setUserId(matches.getFirst().getUserId());
+        if (!existing.isEmpty()) {
+            helpRequest.setUser(existing.get(0).getUser()); // Reuse user if it exists
         }
 
         return helpRequestRepository.save(helpRequest);
     }
 
-         public List<HelpRequestInterface> getAllHelpRequestSummaries() {
-        return helpRequestRepository.findAllProjectedBy();
+    public List<HelpRequest> getByCategoryName(String categoryName) {
+        return helpRequestRepository.findByCategoryName(categoryName);
     }
 }
-
-
-

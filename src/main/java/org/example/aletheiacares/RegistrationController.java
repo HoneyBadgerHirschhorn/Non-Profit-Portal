@@ -1,4 +1,3 @@
-
 package org.example.aletheiacares;
 
 import org.springframework.http.HttpStatus;
@@ -17,14 +16,13 @@ public class RegistrationController {
     private final UserService userService;
     private final UserMapper userMapper;
 
-    // Constructor Injection for UserRepository
     public RegistrationController(UserService userService, UserMapper userMapper) {
         this.userService = userService;
         this.userMapper = userMapper;
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> handleFormSubmission(@RequestBody RegistrationRequest request) {
+    public ResponseEntity<UserDto> handleFormSubmission(@RequestBody RegistrationRequest request) {
 
         logger.info("🔴 [DEBUG] Entered handleFormSubmission method");
         if (request == null) {
@@ -34,8 +32,11 @@ public class RegistrationController {
         logger.info("📥 Received Registration Request: {}", request);
         logger.info(request.toString());
 
-        User user = userMapper.mapRequest(request);
-        User savedUser = userService.saveUser(user);
+        // Map RegistrationRequest to UserDto (NOT to User entity)
+        UserDto userDto = userMapper.registrationRequestToDto(request);
+
+        // Pass UserDto to the service
+        UserDto savedUser = userService.createUser(userDto);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }

@@ -19,9 +19,26 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* navbar */
+.main-navbar {
+    background-color: whitesmoke;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+.main-navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.main-navbar a:hover {
+    text-decoration: underline;
+}
+
 /* Header styling */
 h1, h2 {
-    color: #800000; /* Deep red */
+    color: white; /* Deep red */
 }
 
 /* Paragraph styling */

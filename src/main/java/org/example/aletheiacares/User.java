@@ -1,84 +1,201 @@
 package org.example.aletheiacares;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.*;
+import java.util.List;
+
+
 
 @Entity
+@Table(name = "users")
 public class User {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ID;
+    @Column(name="id")
+    private Integer id;
 
-    private String first_name;
-    private String last_name;
-    private LocalDate date_of_birth;
+    @Column(name="first_name", nullable = false)
+    private String firstName;
+
+    @Column(name="last_name", nullable = false)
+    private String lastName;
+
+    @Column(name="date_of_birth", nullable = false)
+    private LocalDate dateOfBirth;
+
+    @Column(name="gender", nullable = false)
     private String gender;
+
+    @Column(name="address", columnDefinition="TEXT")
     private String address;
-    private String marital_status;
-    private boolean has_kids;
-    private String kid_info;
-    private boolean member;
-    private String contact_phone;
-    private String contact_email;
-    private LocalDate attending_since;
+
+    @Column(name="marital_status")
+    private String maritalStatus;
+
+    @Column(name="has_kids")
+    private Boolean hasKids;
+
+    @Column(name="kid_info", columnDefinition="TEXT")
+    private String kidInfo;
+
+    @Column(name="member")
+    private Boolean member;
+
+    @Column(name="contact_phone")
+    private String contactPhone;
+
+    @Column(name="contact_email")
+    private String contactEmail;
+
+    @Column(name="attending_since")
+    private LocalDate attendingSince;
+
+    // Many-to-many with spiritual_gifts via user_gifts
+    @ManyToMany
+    @JoinTable(
+            name = "user_gifts",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "gift_id")
+    )
+    private Set<SpiritualGift> gifts = new HashSet<>();
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_categories",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private List<Category> categories = new ArrayList<>();
+
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
+    // One-to-many relationships
+    @OneToMany(mappedBy="user", cascade=CascadeType.ALL, orphanRemoval=true)
+    private Set<HelpRequest> helpRequests = new HashSet<>();
+
+    @OneToMany(mappedBy="user", cascade=CascadeType.ALL, orphanRemoval=true)
+    private Set<Post> posts = new HashSet<>();
+
+    @OneToMany(mappedBy="user", cascade=CascadeType.ALL, orphanRemoval=true)
+    private Set<Reply> replies = new HashSet<>();
+
+    @OneToMany(mappedBy="user", cascade=CascadeType.ALL, orphanRemoval=true)
+    private Set<UserCategory> userCategories = new HashSet<>();
+
 
     public User() {
     }
 
-    public User(long ID, String first_name, String last_name, LocalDate date_of_birth, String gender, String address,
-                String marital_status, boolean has_kids, String kid_info, boolean member, String contact_phone,
-                String contact_email, LocalDate attending_since) {
-        this.ID = ID;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.date_of_birth = date_of_birth;
+    public User(Integer id,
+                String firstName,
+                String lastName,
+                LocalDate dateOfBirth,
+                String gender,
+                String address,
+                String maritalStatus,
+                Boolean hasKids,
+                String kidInfo,
+                Boolean member,
+                String contactPhone,
+                String contactEmail,
+                LocalDate attendingSince) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.address = address;
-        this.marital_status = marital_status;
-        this.has_kids = has_kids;
-        this.kid_info = kid_info;
+        this.maritalStatus = maritalStatus;
+        this.hasKids = hasKids;
+        this.kidInfo = kidInfo;
         this.member = member;
-        this.contact_phone = contact_phone;
-        this.contact_email = contact_email;
-        this.attending_since = attending_since;
+        this.contactPhone = contactPhone;
+        this.contactEmail = contactEmail;
+        this.attendingSince = attendingSince;
     }
 
-    // Getters and Setters
-    public long getID() {
-        return ID;
+    public Set<SpiritualGift> getGifts() {
+        return gifts;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setGifts(Set<SpiritualGift> gifts) {
+        this.gifts = gifts;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public Set<HelpRequest> getHelpRequests() {
+        return helpRequests;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setHelpRequests(Set<HelpRequest> helpRequests) {
+        this.helpRequests = helpRequests;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public Set<Post> getPosts() {
+        return posts;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
     }
 
-    public LocalDate getDate_of_birth() {
-        return  date_of_birth;
+    public Set<Reply> getReplies() {
+        return replies;
     }
 
-    public void setDate_of_birth(LocalDate date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setReplies(Set<Reply> replies) {
+        this.replies = replies;
+    }
+
+    public Set<UserCategory> getUserCategories() {
+        return userCategories;
+    }
+
+    public void setUserCategories(Set<UserCategory> userCategories) {
+        this.userCategories = userCategories;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getGender() {
@@ -97,60 +214,64 @@ public class User {
         this.address = address;
     }
 
-    public String getMarital_status() {
-        return marital_status;
+    public String getMaritalStatus() {
+        return maritalStatus;
     }
 
-    public void setMarital_status(String marital_status) {
-        this.marital_status = marital_status;
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 
-    public boolean isHas_kids() {
-        return has_kids;
+    public Boolean getHasKids() {
+        return hasKids;
     }
 
-    public void setHas_kids(boolean has_kids) {
-        this.has_kids = has_kids;
+    public void setHasKids(Boolean hasKids) {
+        this.hasKids = hasKids;
     }
 
-    public String getKid_info() {
-        return kid_info;
+    public String getKidInfo() {
+        return kidInfo;
     }
 
-    public void setKid_info(String kid_info) {
-        this.kid_info = kid_info;
+    public void setKidInfo(String kidInfo) {
+        this.kidInfo = kidInfo;
     }
 
-    public boolean isMember() {
+    public Boolean getMember() {
         return member;
     }
 
-    public void setMember(boolean member) {
+    public void setMember(Boolean member) {
         this.member = member;
     }
 
-    public String getContact_phone() {
-        return contact_phone;
+    public String getContactPhone() {
+        return contactPhone;
     }
 
-    public void setContact_phone(String contact_phone) {
-        this.contact_phone = contact_phone;
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
     }
 
-    public String getContact_email() {
-        return contact_email;
+    public String getContactEmail() {
+        return contactEmail;
     }
 
-    public void setContact_email(String contact_email) {
-        this.contact_email = contact_email;
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 
-    public LocalDate getAttending_since(LocalDate attendingSince) {
-        return attending_since;
+    public LocalDate getAttendingSince() {
+        return attendingSince;
     }
 
-    public void setAttending_since(LocalDate attending_since) {
-        this.attending_since = attending_since;
+    public void setAttendingSince(LocalDate attendingSince) {
+        this.attendingSince = attendingSince;
     }
 }
+
+
+
+
 

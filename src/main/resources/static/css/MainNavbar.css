@@ -1,0 +1,17 @@
+    
+/* Categories Navbar */
+.main-navbar {
+    background-color: whitesmoke;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+}
+.main-navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+.main-navbar a:hover {
+    text-decoration: underline;
+}

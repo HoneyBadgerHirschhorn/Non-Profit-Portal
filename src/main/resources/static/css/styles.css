@@ -10,63 +10,37 @@ body {
 .header {
     background-color: #800000; /* Deep red */
     color: white;
-    /*text-align: center;*/
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /*justify-content: center; !* Horizontally center the items *!*/
-
 }
+
 .header h1 {
     position: relative;
     right: 120px;
-
 }
 
-.header img{
+.header img {
     position: relative;
     left: 120px;
 }
 
-/* Locations Navbar */
-.locations-navbar {
-    background-color: #800000; /* Slightly darker red */
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: 0.8rem 0;
-}
-.locations-navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    margin: 0 15px;
-}
-.locations-navbar a:hover {
-    text-decoration: underline;
-}
-
-/* Categories Navbar */
-.categories-navbar {
+/* Main Navbar */
+.main-navbar {
     background-color: whitesmoke;
     color: white;
     display: flex;
     justify-content: space-around;
     padding: 1rem 0;
 }
-.categories-navbar a {
+.main-navbar a {
     color: black;
     text-decoration: none;
     font-size: 1.2rem;
 }
-.categories-navbar a:hover {
+.main-navbar a:hover {
     text-decoration: underline;
 }
-
-/*.categories-navbar .link{*/
-/*    position: relative;*/
-/*    top: 25px;*/
-/*}*/
 
 /* Main Content */
 .main-content {
@@ -75,4 +49,44 @@ body {
 }
 .main-content h1 {
     color: #800000;
+}
+
+/* Banner Section */
+.banner {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.banner img {
+    width: 100%;
+    display: none; /* Hide all images by default */
+}
+
+.banner img.active {
+    display: block; /* Show only the active image */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
 }

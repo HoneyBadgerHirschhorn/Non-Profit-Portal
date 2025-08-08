@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("❌ ERROR: Form not found!");
         return;
     }
+    document.getElementById("has_kids").addEventListener("change", toggleKidInfo);
+    // Set initial visibility on load
+    toggleKidInfo();
 
     console.log("🟢 Form found. Attaching submit event...");
     form.addEventListener("submit", handleSubmit);
@@ -50,8 +53,6 @@ async function handleSubmit(event) {
 
     console.log("🔵 Sending JSON:", JSON.stringify(data)); // Debugging output before sending request
 
-    fetch("http://localhost:8080/js/registration.js").then(r => r.text()).then(eval)
-
     try {
         const response = await fetch("http://localhost:8080/api/register", {
             method: "POST",
@@ -75,13 +76,5 @@ async function handleSubmit(event) {
         alert("There was an error with the registration.");
     }
     // Call toggleKidInfo when page loads to set initial visibility
-    window.onload = function () {
-        toggleKidInfo();
-        document.getElementById("has_kids").addEventListener("change", toggleKidInfo);
-        document.getElementById("registrationForm").addEventListener("submit", handleSubmit);
-    }
+
 }
-
-
-
-

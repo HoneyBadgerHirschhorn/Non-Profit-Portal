@@ -1,44 +1,71 @@
 package org.example.aletheiacares;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 
-public  class RegistrationRequest {
-    private String first_name;
-    private String last_name;
-    private LocalDate date_of_birth;
+public class RegistrationRequest {
+    @JsonProperty("first_name")
+    private String firstName;
+
+    @JsonProperty("last_name")
+    private String lastName;
+
+    @JsonProperty("date_of_birth")
+    private LocalDate dateOfBirth;
+
+    @JsonProperty("gender")
     private String gender;
+
+    @JsonProperty("address")
     private String address;
-    private String marital_status;
-    private boolean has_kids;
-    private String kid_info;
-    private boolean member;
-    private String contact_phone;
-    private String contact_email;
-    private LocalDate attending_since;
 
-    // Getters and setters
-    public String getFirst_name() {
-        return first_name;
+    @JsonProperty("marital_status")
+    private String maritalStatus;
+
+    @JsonProperty("has_kids")
+    private Boolean hasKids;
+
+    @JsonProperty("kid_info")
+    private String kidInfo;
+
+    @JsonProperty("member")
+    private Boolean member;
+
+    @JsonProperty("contact_phone")
+    private String contactPhone;
+
+    @JsonProperty("contact_email")
+    private String contactEmail;
+
+    @JsonProperty("attending_since")
+    private LocalDate attendingSince;
+
+
+    public RegistrationRequest() {}
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public LocalDate getDate_of_birth() {
-        return date_of_birth;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDate_of_birth(LocalDate date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getGender() {
@@ -57,60 +84,60 @@ public  class RegistrationRequest {
         this.address = address;
     }
 
-    public String getMarital_status() {
-        return marital_status;
+    public String getMaritalStatus() {
+        return maritalStatus;
     }
 
-    public void setMarital_status(String marital_status) {
-        this.marital_status = marital_status;
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
     }
 
-    public boolean isHas_kids() {
-        return has_kids;
+    public Boolean getHasKids() {
+        return hasKids;
     }
 
-    public void setHas_kids(boolean has_kids) {
-        this.has_kids = has_kids;
+    public void setHasKids(Boolean hasKids) {
+        this.hasKids = hasKids;
     }
 
-    public String getKid_info() {
-        return kid_info;
+    public String getKidInfo() {
+        return kidInfo;
     }
 
-    public void setKid_info(String kid_info) {
-        this.kid_info = kid_info;
+    public void setKidInfo(String kidInfo) {
+        this.kidInfo = kidInfo;
     }
 
-    public boolean isMember() {
+    public Boolean getMember() {
         return member;
     }
 
-    public void setMember(boolean member) {
+    public void setMember(Boolean member) {
         this.member = member;
     }
 
-    public String getContact_phone() {
-        return contact_phone;
+    public String getContactPhone() {
+        return contactPhone;
     }
 
-    public void setContact_phone(String contact_phone) {
-        this.contact_phone = contact_phone;
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
     }
 
-    public String getContact_email() {
-        return contact_email;
+    public String getContactEmail() {
+        return contactEmail;
     }
 
-    public void setContact_email(String contact_email) {
-        this.contact_email = contact_email;
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 
-    public LocalDate getAttending_since() {
-        return attending_since;
+    public LocalDate getAttendingSince() {
+        return attendingSince;
     }
 
-    public void setAttending_since(LocalDate attending_since) {
-        this.attending_since = attending_since;
+    public void setAttendingSince(LocalDate attendingSince) {
+        this.attendingSince = attendingSince;
     }
 }
 

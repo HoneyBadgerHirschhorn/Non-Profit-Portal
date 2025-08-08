@@ -1,19 +1,15 @@
 package org.example.aletheiacares;
 
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-@Component
-public class HelpRequestMapper {
+@Mapper(componentModel = "spring")
+public interface HelpRequestMapper {
 
-    public HelpRequest helpRequest(HelpRequest request){
-        HelpRequest helpRequest = new HelpRequest();
-        helpRequest.setId(request.getId());
-        helpRequest.setUserId(request.getUserId());
-        helpRequest.setCategory(request.getCategory());
-        helpRequest.setFirstName(request.getFirstName());
-        helpRequest.setLastName(request.getLastName());
-        helpRequest.setTitle(request.getTitle());
-        return helpRequest;
-    }
+    @Mapping(target = "userId", source = "user.id")
+    @Mapping(target = "firstName", source = "user.firstName")
+    @Mapping(target = "lastName", source = "user.lastName")
+    @Mapping(target = "category", source = "category.name")
+    HelpRequestDto toDto(HelpRequest entity);
 
 }

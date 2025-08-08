@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Aletheia Cares - Events Calendar</title>
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/events.css">
 
     <!-- FullCalendar Script (v6.x global bundle includes all views & plugins) -->
@@ -15,22 +16,36 @@
 
 <!-- Header -->
 <header class="header">
-    <img src="churchLogo.png" alt="Aletheia Logo" />
+    <img src="churchLogo.png" alt="Aletheia Logo" width="240" height="75" />
     <h1>Aletheia Cares</h1>
 </header>
 
-<!-- Banner Section -->
-<div class="banner">
-    <img src="banner1.jpg" class="active" alt="Banner 1" />
-    <img src="banner2.jpg" alt="Banner 2" />
-    <img src="banner3.jpg" alt="Banner 3" />
-    <img src="banner4.jpg" alt="Banner 4" />
-    <img src="banner5.jpg" alt="Banner 5" />
+<style>
+.header {
+    background-color: #800000 !important;
+    color: white !important;
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.header h1 {
+    margin: 0 !important;
+    color: white !important;
+}
+</style>
 
-    <!-- Arrow buttons -->
-    <div class="arrow left" onclick="changeSlide(-1)">&#10094;</div>
-    <div class="arrow right" onclick="changeSlide(1)">&#10095;</div>
-</div>
+<nav class="main-navbar">
+    <a href="index.html" class="link">Home</a>
+    <a href="about.html" class="link">About Aletheia Cares</a>
+    <a href="RegistrationPage.html" class="link">Sign Up</a>
+    <a href="gifts.html" class="link">Knowing Your Gifts</a>
+    <a href="Categories.html" class="link">Helping Others</a>
+    <a href="helpRequest.html" class="link">Requesting Help</a>
+    <a href="events.html" class="link">Events</a>
+</nav>
+
+
 
 <!-- Calendar Section -->
 <main class="calendar-container">
@@ -39,67 +54,7 @@
 </main>
 <script src="js/events.js"></script>
 </body>
-</html>
 
-
-// Banner Slideshow Logic
-// const images = document.querySelectorAll('.banner img');
-// let currentIndex = 0;
-// let interval = setInterval(nextSlide, 10000); // 10 seconds auto slide
-//
-// function showSlide(index) {
-//     images.forEach((img, i) => {
-//         img.classList.toggle('active', i === index);
-//     });
-// }
-//
-// function nextSlide() {
-//     currentIndex = (currentIndex + 1) % images.length;
-//     showSlide(currentIndex);
-// }
-//
-// function changeSlide(direction) {
-//     clearInterval(interval); // stop auto-slide when manually navigating
-//     currentIndex = (currentIndex + direction + images.length) % images.length;
-//     showSlide(currentIndex);
-//     interval = setInterval(nextSlide, 10000); // restart auto-slide
-// }
-//
-// // Calendar Initialization
-// document.addEventListener('DOMContentLoaded', function () {
-//     const calendarEl = document.getElementById('calendar');
-//
-//     const calendar = new FullCalendar.Calendar(calendarEl, {
-//         initialView: 'dayGridMonth',
-//         editable: true,          // enables drag/drop and resize
-//         selectable: true,        // enables selecting date ranges
-//         selectHelper: true,      // visual cue while selecting
-//         events: [],              // start with no events
-//
-//         // On selecting a date range, prompt to add an event
-//         select: function(info) {
-//             const title = prompt("Enter Event Title:");
-//             if (title) {
-//                 calendar.addEvent({
-//                     title: title,
-//                     start: info.startStr,
-//                     end: info.endStr,
-//                     allDay: info.allDay
-//                 });
-//             }
-//             calendar.unselect();
-//         },
-//
-//         // Clicking an event lets the user remove it
-//         eventClick: function(info) {
-//             if (confirm(`Delete event "${info.event.title}"?`)) {
-//                 info.event.remove();
-//             }
-//         }
-//     });
-//
-//     calendar.render();
-// });
 
 
 <!--    <style>-->

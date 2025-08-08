@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help Requests by Category</title>
+  <link rel="stylesheet" href="css/CategoryStyles.css" />
+  <style>
+    .post-box, .reply-box {
+      border: 2px solid #800000;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      background-color: white;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .reply-box {
+      margin-left: 2em;
+    }
+
+    .reply-form {
+      margin-top: 10px;
+    }
+
+    .reply-form input,
+    .reply-form textarea {
+      width: 95%;
+      margin: 5px 0;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .reply-form button {
+      background-color: #800000;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .reply-form button:hover {
+      background-color: #a00000;
+    }
+
+    button.toggle-posts {
+      margin-bottom: 1rem;
+      padding: 6px 10px;
+      background-color: #800000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button.toggle-posts:hover {
+      background-color: #a00000;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="page-title">Loading...</h1>
+  <div id="requests" class="grid-container"></div>
+  <script src="js/requestSearch.js" defer></script>
+</body>
+</html>

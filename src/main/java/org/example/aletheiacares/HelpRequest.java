@@ -1,25 +1,20 @@
-
-
-
 package org.example.aletheiacares;
 
-import jakarta.persistence.*; // Import JPA annotations
+import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 @Entity
-@Table(name = "help_requests") // Optional: Explicit table name
+@Table(name = "help_requests")
 public class HelpRequest {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generate primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
-    private Integer version;
+    private Integer id;
 
-    @Version
-    @JsonProperty("version")
-
-
-    private Long id;
+    @JsonProperty("status")
+    private String status;
 
     @JsonProperty("title")
     private String title;
@@ -30,30 +25,39 @@ public class HelpRequest {
     @JsonProperty("last_name")
     private String lastName;
 
-    @JsonProperty("user_id")
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-    @JsonProperty("category")
-    private String category;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 
     @JsonProperty("content")
     private String content;
 
+
+
     // Constructors
     public HelpRequest() {}
 
-    public HelpRequest(String title, String firstName, String lastName, Long userId, String category, String content) {
+    public HelpRequest( String status, String title, String firstName, String lastName, User user, Category category,  String content) {
+        this.status = status;
         this.title = title;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userId = userId;
-        this.category = category;
+        this.user = user;
         this.content = content;
+        this.category = category;
     }
 
     // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
@@ -64,96 +68,13 @@ public class HelpRequest {
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public Long getUserId() { return userId; }
-    public void setUserId(Long userId) { this.userId = userId; }
+    public User getUser() { return user; }
+    public void setUser(User userId) { this.user = userId; }
 
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+
+    public Category getCategory() { return category; }
+    public void setCategory(Category category) { this.category = category; }
 
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
 }
-
-
-//package org.example.aletheiacares;
-//
-//import com.fasterxml.jackson.annotation.JsonProperty;
-//
-//public class HelpRequest {
-//    @JsonProperty("id")
-//    private Long id;
-//
-//    @JsonProperty("title")
-//    private String title;
-//
-//    @JsonProperty("first_name")
-//    private String firstName;
-//
-//    @JsonProperty("last_name")
-//    private String lastName;
-//
-//    @JsonProperty("user_id")
-//    private Long userId;
-//
-//    @JsonProperty("category")
-//    private String category;
-//
-//    @JsonProperty("content")
-//    private String content;
-//
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getTitle() {
-//        return title;
-//    }
-//
-//    public void setTitle(String title) {
-//        this.title = title;
-//    }
-//
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
-//
-//    public Long getUserId() {
-//        return userId;
-//    }
-//
-//    public void setUserId(Long userId) {
-//        this.userId = userId;
-//    }
-//
-//    public String getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(String category) {
-//        this.category = category;
-//    }
-//
-//    public String getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(String content) {
-//        this.content = content;
-//    }
-//}
