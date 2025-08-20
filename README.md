@@ -11,7 +11,7 @@ A Java Spring Boot web application for managing help requests, posts, replies an
 - Category-based help request listings
 - Ability to respond to help request listings with posts
 - Threaded replies to posts
-- Events calendar (does not yet save to database)
+
   
 ## In Development
 - Admin and user roles with different permissions
@@ -23,6 +23,7 @@ A Java Spring Boot web application for managing help requests, posts, replies an
 - ** Brainstorming ** Checkout-based system for answering requests for record keeping. 
 - Visual overhaul for a more modern feel
 - Conflict resolution system (private communication / staff referral)
+- Events calendar
 
 ## Tech Stack
 - **Backend:** Java 22, Spring Boot, Spring Data JPA, Hibernate
